@@ -455,3 +455,35 @@ document.addEventListener(
 
     }
 );
+
+const reasons = [
+
+"Because your smile is contagious.",
+"Because you are genuine.",
+"Because talking to you feels comforting.",
+"Because your kindness is rare.",
+"Because your positivity is beautiful.",
+"Because you make ordinary moments memorable.",
+"Because you stay true to yourself.",
+"Because your presence feels peaceful.",
+"Because you inspire people.",
+"Because there is only one Jassi."
+
+];
+
+const reasonBtn =
+document.getElementById("reasonBtn");
+
+if(reasonBtn){
+
+reasonBtn.addEventListener("click",()=>{
+
+const random =
+reasons[Math.floor(Math.random()*reasons.length)];
+
+document.getElementById("reasonOutput")
+.innerHTML = random;
+
+});
+
+}
