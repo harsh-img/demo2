@@ -3,594 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>For Jassi 💜</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- Loading Screen -->
-
 <div id="loader">
     <div class="loader-content">
-        <div class="heart-loader">💜</div>
+        <div class="heart-loader">❤️</div>
         <h2>Loading Something Special...</h2>
     </div>
 </div>
 
-<!-- Password Screen -->
-
-<div id="passwordScreen">
-
-    <div class="glass-card">
-
-        <h1>🌹 Private Page 🌹</h1>
-
-        <p>Only For Someone Special</p>
-
-        <input
-            type="password"
-            id="password"
-            placeholder="Enter Password">
-
-        <button onclick="checkPassword()">
-            Unlock 💜
-        </button>
-
-        <p id="error"></p>
-
-    </div>
-
-</div>
-
 <!-- Main Content -->
-
 <div id="mainContent">
 
-    <!-- Particles -->
+    <!-- Floating Ambient Music Player -->
+    <div class="ambient-music-player" id="musicPlayer">
+        <div class="music-disc-wrapper" id="musicDiscWrapper" onclick="togglePlay()">
+            <div class="music-disc" id="musicDisc">🎵</div>
+        </div>
+        <div class="music-details">
+            <div class="music-title">Acoustic Melody 💜</div>
+            <div class="music-artist">Reminds me of you</div>
+        </div>
+        <div class="music-controls">
+            <button class="play-pause-btn" onclick="togglePlay()" id="playPauseBtn">▶️</button>
+        </div>
+        <audio id="bgAudio" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg">
+        </audio>
+    </div>
 
+    <!-- Floating Lyrics Ribbon -->
+    <div class="lyrics-overlay" id="lyricsOverlay">
+        <span class="lyrics-text" id="lyricsText">Tu jo mila toh saare gham beh gaye... 💜</span>
+    </div>
+
+    <!-- Particles Layer -->
     <div id="petals"></div>
     <div id="fireflies"></div>
 
     <!-- Theme Switcher -->
-
     <div class="theme-switcher">
-
-        <button onclick="setTheme('purple')">
-            💜
-        </button>
-
-        <button onclick="setTheme('dark')">
-            🖤
-        </button>
-
-        <button onclick="setTheme('pink')">
-            🌸
-        </button>
-
+        <button onclick="setTheme('purple')">💜</button>
+        <button onclick="setTheme('dark')">🖤</button>
+        <button onclick="setTheme('pink')">🌸</button>
     </div>
 
-    <!-- Hero -->
-
+    <!-- Hero Section -->
     <section class="hero">
-
         <div class="hero-content">
-
             <h1>For Jyotsana 💜</h1>
-
-            <h3>My Jassi ✨</h3>
-
+            <h3>My Jassi urf Dev Sena ✨</h3>
             <p id="typewriter"></p>
-
-            <a href="#reasons" class="scroll-btn">
-                Explore 💜
-            </a>
-
+            <a href="#aboutSection" class="scroll-btn">Explore My Heart 💜</a>
         </div>
-
     </section>
 
-    <!-- Birthday Section -->
-
-    <section class="birthday">
-
-        <h2>🌹 17 October 2000 🌹</h2>
-
-        <div class="glass-box">
-
-            <p>
-                17 October 2000 wasn't just another day.
-            </p>
-
-            <p>
-                It was the day someone wonderful entered this world.
-            </p>
-
-            <p>
-                And years later...
-                somehow that person became important to me.
-            </p>
-
-        </div>
-
-    </section>
-
-    <section class="about-jassi">
-
+    <!-- About Section -->
+    <section id="aboutSection" class="reveal">
         <h2>About Jassi ✨</h2>
-
         <div class="glass-box">
-
-            <p>
-                Some people are remembered because they are beautiful.
-            </p>
-
-            <p>
-                Some people are remembered because they are kind.
-            </p>
-
-            <p>
-                And then there are people like you...
-                who are remembered because of the way they make others feel.
-            </p>
-
-            <p>
-                You may never realize it,
-                but your presence has a way of making ordinary moments feel special.
-            </p>
-
-            <p>
-                And that is something truly rare.
-            </p>
-
+            <p>Some people are remembered because they are beautiful.</p>
+            <p>Some people are remembered because they are kind.</p>
+            <p>And then there are people like you...</p>
+            <p>Who are remembered because of the way they make others feel.</p>
+            <p>You may never realize it, but your presence has a way of making ordinary moments feel incredibly special.</p>
+            <p>And that is something truly rare and magical. Urf Dev Sena ❤️</p>
         </div>
-
     </section>
 
-    <!-- Reasons -->
+    <!-- Mood Section -->
+    <section class="mood-section reveal">
+        <h2>Emotional Care Package 🎁</h2>
+        <div class="mood-box">
+            <p style="color: #ffccd5; font-style: italic; font-size: 16px;">How are you feeling right now, Jassi? Tap your mood...</p>
+            <div class="mood-selector">
+                <button class="mood-btn" onclick="selectMood('happy')">Happy 😊</button>
+                <button class="mood-btn" onclick="selectMood('tired')">Tired 😴</button>
+                <button class="mood-btn" onclick="selectMood('sad')">Sad 🥺</button>
+                <button class="mood-btn" onclick="selectMood('missing')">Missing Me 🙈</button>
+            </div>
+            <div class="mood-response" id="moodResponse"></div>
+        </div>
+    </section>
 
-    <section id="reasons">
+    <!-- Interactive Blooming Rose -->
+    <section class="rose-section reveal">
+        <h2>A Blooming Rose For You 🌹</h2>
+        <div class="rose-showcase">
+            <div class="rose-wrapper" id="roseWrapper" onclick="bloomRose()">
+                <div class="stem"></div>
+                <div class="leaf leaf-left"></div>
+                <div class="leaf leaf-right"></div>
+                <div class="rose-head">
+                    <div class="petal-c p1"></div>
+                    <div class="petal-c p2"></div>
+                    <div class="petal-c p3"></div>
+                    <div class="petal-c p4"></div>
+                    <div class="petal-c p5"></div>
+                </div>
+            </div>
+            <div class="rose-hint">Tap the rose to make it bloom...</div>
+            <div class="rose-message" id="roseMessage">
+                <p>Jaise yeh phool khilta hai, waise hi mera dil tumhari ek smile dekh kar muskura uthta hai. 🌹</p>
+                <p>You have a magical capability to make ordinary moments feel like a beautiful fairytale. Thank you for blooming in my life.</p>
+            </div>
+        </div>
+    </section>
 
-        <h2>Why You're Special 💜</h2>
-
+    <!-- Reasons Section -->
+    <section id="reasons" class="reveal">
+        <h2>Why You're So Special 💜</h2>
         <div class="cards">
-
             <div class="reason-card">
-                💜
+                <span class="icon">💜</span>
                 <h3>Your Kindness</h3>
-                <p>
-                    You make people feel comfortable.
-                </p>
+                <p>You make people feel comfortable and safe. Your warmth is contagious.</p>
             </div>
-
             <div class="reason-card">
-                ✨
+                <span class="icon">✨</span>
                 <h3>Your Smile</h3>
-                <p>
-                    A smile that brightens a day.
-                </p>
+                <p>A smile that has the power to brighten up the darkest of my days instantly.</p>
             </div>
-
             <div class="reason-card">
-                🌸
+                <span class="icon">🌸</span>
                 <h3>Your Positivity</h3>
-                <p>
-                    You spread good energy.
-                </p>
+                <p>You spread good energy wherever you go. Your vibe is a blessing.</p>
             </div>
-
             <div class="reason-card">
-                🌙
+                <span class="icon">🌙</span>
                 <h3>Your Presence</h3>
-                <p>
-                    Some people feel like peace.
-                </p>
+                <p>Some people feel like peace, and you are definitely my favorite kind of peace.</p>
             </div>
-
             <div class="reason-card">
-                👑
+                <span class="icon">👑</span>
                 <h3>Your Uniqueness</h3>
-                <p>
-                    There is only one Jassi.
-                </p>
+                <p>There is only one Jassi. You're irreplaceable, rare, and premium.</p>
             </div>
-
             <div class="reason-card">
-                💎
+                <span class="icon">💎</span>
                 <h3>Your Heart</h3>
-                <p>
-                    Pure and beautiful.
-                </p>
+                <p>Pure, soft, and so beautiful. A heart that only knows how to care.</p>
             </div>
-
-            <div class="reason-card">
-                🎁
-                <h3>Memories</h3>
-                <p>
-                    Every memory feels special.
-                </p>
-            </div>
-
-            <div class="reason-card">
-                ⭐
-                <h3>Your Strength</h3>
-                <p>
-                    Stronger than you realize.
-                </p>
-            </div>
-
         </div>
-
     </section>
 
-    <!-- Timeline -->
+    <!-- Late Night Chat Simulator / Interactive Game -->
+    <section class="chat-simulator reveal">
+        <h2>Late Night Thoughts 🌙</h2>
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-avatar">J</div>
+                <div class="chat-user-info">
+                    <h4>Jassi 💜</h4>
+                    <span id="chatStatus">Online</span>
+                </div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages dynamically typed out -->
+            </div>
+            <div class="chat-choices-wrapper" id="chatChoicesWrapper">
+                <div class="chat-choices" id="chatChoices">
+                    <!-- Choice buttons will be injected here by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="timeline">
-
+    <!-- Timeline Section -->
+    <section class="timeline reveal">
         <h2>Our Timeline ✨</h2>
-
         <div class="timeline-container">
-
             <div class="timeline-item">
-                First Conversation 💬
+                <h3>First Conversation 💬</h3>
+                <p>Kaise ek anjaan ladki se shuru hui baat, aaj meri life ka sabse khoobsurat hissa ban gayi hai.</p>
             </div>
-
             <div class="timeline-item">
-                Getting To Know You 🌸
+                <h3>Getting To Know You 🌸</h3>
+                <p>Sharing thoughts, laughing together, and realizing that we connect on a level that words can't fully capture.</p>
             </div>
-
             <div class="timeline-item">
-                Sharing Memories 💜
+                <h3>Sharing Memories 💜</h3>
+                <p>Every picture, every conversation, and every joke we shared has become a treasure in my heart.</p>
             </div>
-
             <div class="timeline-item">
-                Becoming Important ✨
+                <h3>Becoming Important ✨</h3>
+                <p>Unconsciously, you started staying in my thoughts from morning till night, becoming a necessity of my happiness.</p>
             </div>
-
             <div class="timeline-item">
-                Appreciating You Every Day 🌹
+                <h3>Appreciating You Every Day 🌹</h3>
+                <p>This is my way of telling you that you are valued, appreciated, and cherished. Hamesha.</p>
             </div>
-
         </div>
-
     </section>
 
-    <section class="midnight">
-
-        <h2>Midnight Thoughts 🌙</h2>
-
-        <div class="glass-box">
-
-            <p>
-                Sometimes I wonder if you know
-                how much positivity you bring.
-            </p>
-
-            <p>
-                Not because of grand gestures.
-            </p>
-
-            <p>
-                Not because of extraordinary things.
-            </p>
-
-            <p>
-                But because simply being yourself
-                is enough.
-            </p>
-
-            <p>
-                And honestly...
-            </p>
-
-            <p>
-                That is pretty special.
-            </p>
-
-            💜
-
-        </div>
-
-    </section>
-
-    <!-- Counters -->
-
-    <section class="stats">
-
-        <h2>Some Numbers 💜</h2>
-
+    <!-- Counters Section -->
+    <section class="stats reveal">
+        <h2>Some Pure Numbers 💜</h2>
         <div class="stats-grid">
-
             <div class="stat-card">
-                <span class="counter" data-target="100">
-                    0
-                </span>
-                <h3>% Appreciation</h3>
+                <span class="counter" data-target="100">0</span>
+                <h3>% Pure Appreciation</h3>
             </div>
-
             <div class="stat-card">
-                <span class="counter" data-target="999">
-                    0
-                </span>
-                <h3>Happy Thoughts</h3>
+                <span class="counter" data-target="999">0</span>
+                <h3>Happy Thoughts About You</h3>
             </div>
-
             <div class="stat-card">
-                <span class="counter" data-target="365">
-                    0
-                </span>
-                <h3>Reasons To Smile</h3>
+                <span class="counter" data-target="365">0</span>
+                <h3>Reasons To Smile Everyday</h3>
             </div>
-
         </div>
-
     </section>
 
-    <!-- Poems -->
-
-    <section class="poems">
-
+    <!-- Poems Section -->
+    <section class="poems reveal">
         <h2>Poems For You 🌹</h2>
-
-        <div class="poem-card">
-
-            Some people become a habit of happiness.
-            <br><br>
-
-            Not because we see them every day,
-            but because they stay in our thoughts.
-
+        <div class="poems-slider">
+            <div class="poem-card">
+                Some people become a habit of happiness.<br><br>
+                Not because we see them every day, but because they stay in our thoughts, guiding our smiles.
+            </div>
+            <div class="poem-card">
+                Maybe not every story needs a grand title.<br><br>
+                Some stories are written in quiet whispers, and some people are simply beautiful chapters.
+            </div>
+            <div class="poem-card">
+                You never realize the value of some people,<br><br>
+                Until you imagine a day without their text, their smile, or their laughter.
+            </div>
         </div>
-
-        <div class="poem-card">
-
-            Maybe not every story needs a title.
-
-            <br><br>
-
-            Some people are simply beautiful chapters.
-
-        </div>
-
-        <div class="poem-card">
-
-            You never realize the value of some people
-            until you imagine a day without them.
-
-        </div>
-
     </section>
 
-    <!-- Secret Compliments -->
-
-    <section class="compliments">
-
-        <h2>Hidden Compliments 🎁</h2>
-
-        <div class="compliment-grid">
-
-            <button class="compliment-btn">
-                Open 1
-            </button>
-
-            <button class="compliment-btn">
-                Open 2
-            </button>
-
-            <button class="compliment-btn">
-                Open 3
-            </button>
-
-            <button class="compliment-btn">
-                Open 4
-            </button>
-
-            <button class="compliment-btn">
-                Open 5
-            </button>
-
+    <!-- Bubble Compliments Section -->
+    <section class="bubble-section reveal">
+        <h2>Pop My Compliments 🎈</h2>
+        <p style="text-align:center; color:#ffccd5; margin-bottom:20px; font-style: italic;">Tap on the floating bubbles to release sweet thoughts from my heart...</p>
+        <div class="bubbles-container" id="bubblesContainer">
+            <!-- Bubbles will be injected by JavaScript -->
         </div>
-
-        <div id="complimentText"></div>
-
+        <div id="bubbleText"></div>
     </section>
 
-    <!-- Envelope -->
-
-    <section class="envelope-section">
-
-        <h2>Open My Letter 💌</h2>
-
-        <div class="envelope" onclick="openLetter()">
-
-            📩
-
+    <!-- Interactive Letter Envelope Section -->
+    <section class="envelope-section reveal">
+        <h2>Open My Heart 💌</h2>
+        <p style="color:#ffccd5; margin-bottom: 25px; font-style: italic;">I couldn't say it out loud, so I wrote it down for you...</p>
+        <div class="envelope-wrapper" id="envelopeWrapper" onclick="openEnvelope()">
+            <div class="envelope-flap"></div>
+            <div class="envelope-pocket"></div>
+            <div class="envelope-heart">❤️</div>
+            <div class="letter-inside">
+                <h4>For Jassi... 💜</h4>
+                <p>Click me to pull the letter out and read my secrets.</p>
+            </div>
         </div>
-
-        <div id="letter">
-
-            <h3>Dear Jassi 💜</h3>
-
-            <p>
-
-                Thank you for every conversation.
-
-                Thank you for every smile.
-
-                Thank you for being yourself.
-
-                Whether life keeps us close
-                or takes us on different paths,
-
-                you'll always remain someone
-                I genuinely appreciate.
-
-                💜
-
-            </p>
-
-        </div>
-
     </section>
 
-    <section class="dedication">
-
-        <h2>A Little Piece Of My Heart 💜</h2>
-
-        <div class="glass-box">
-
-            <p>
-                Dear Jassi,
-            </p>
-
-            <br>
-
-            <p>
-                I don't know if you realize how much positivity
-                you bring into people's lives.
-            </p>
-
-            <p>
-                There are people we meet,
-                and then there are people who slowly become
-                part of our daily thoughts.
-            </p>
-
-            <p>
-                You are one of those people.
-            </p>
-
-            <p>
-                This page is not here to ask for anything.
-            </p>
-
-            <p>
-                Not a promise.
-            </p>
-
-            <p>
-                Not an answer.
-            </p>
-
-            <p>
-                Not a change.
-            </p>
-
-            <p>
-                It exists for one simple reason.
-            </p>
-
-            <p>
-                To remind you that somewhere in this world,
-                there is a person who genuinely appreciates you.
-            </p>
-
-            <p>
-                Your smile.
-            </p>
-
-            <p>
-                Your kindness.
-            </p>
-
-            <p>
-                Your personality.
-            </p>
-
-            <p>
-                And most importantly...
-            </p>
-
-            <p>
-                The person you are.
-            </p>
-
-            <p>
-                Thank you for being you.
-            </p>
-
-            <br>
-
-            💜
-
+    <!-- Full Screen Letter Overlay -->
+    <div id="letterOverlay">
+        <div class="premium-letter">
+            <button class="close-letter-btn" onclick="closeEnvelope()">&times;</button>
+            <h3>Dear Jassi urf Dev Sena 💜</h3>
+            <div class="premium-letter-content">
+                <p><strong>Kuch log zindagi mein aate hain aur use poori tarah badal dete hain.</strong> Tum unhi kam logon mein se ho jinhone mere chehre par sachhi smile laayi hai.</p>
+                <p>Main aksar sochta hoon ki tum kitni simple ho, kitni genuine ho. Tumhara dusron ko comfortable feel karana, bina kisi matlab ke sabse acche se baat karna, aur tumhari aawaz mein jo ek alag hi sukoon hai—yeh sab sach mein bahut rare hai.</p>
+                <p>Mujhe nahi pata ki humare aage ka rasta kahan jayega, na hi main koi waada kar raha hoon. Lekin ek baat main sach keh sakta hoon: jab se tum meri life mein aayi ho, sab kuch thoda sa zyada khoobsurat lagne laga hai. Tumhari thodi si fikr, wo sweet talks, aur tumhari positive energy mere poore din ki thakaan mita deti hai.</p>
+                <p>Yeh page bas tumhein yeh yaad dilane ke liye hai ki tum bahut keemti ho. Tumhari existence hi kisi ke liye khushi ki wajah hai. Kabhi bhi apne aap par doubt mat karna, tum jaisi ho, sabse perfect ho. 🌹</p>
+                <p>Hamesha muskuraati rehna, kyunki tumhari smile meri favorite cheez hai.</p>
+                <p style="text-align: right; font-weight: bold; margin-top: 30px;">With all my love and appreciation, 💜<br><span style="font-family: 'Dancing Script', cursive; font-size:28px;">Dev Sena's Admirer ❤️</span></p>
+            </div>
         </div>
+    </div>
 
-    </section>
-
-    <!-- Final Surprise -->
-
-    <section class="final-section">
-
-        <button id="surpriseBtn">
-
-            Open Final Surprise 💜
-
-        </button>
-
+    <!-- Final Surprise Section -->
+    <section class="final-section reveal">
+        <button id="surpriseBtn">Open Final Surprise 💜</button>
         <div id="finalMessage">
-
             <h2>For Jassi 💜</h2>
-
             <p>
-
-                Zindagi kaafi ajeeb si hoti hai...
-
-                Hazaaro log milte hain.
-
-                Kuch log bas raaste se guzar jaate hain.
-
-                Kuch yaadon ka hissa ban jaate hain.
-
-                Aur kuch bahut hi kam log aise hote hain,
-                jo dil ke kareeb aa jaate hain.
-
-                Tum unhi khaas logon mein se ek ho.
-
-                Mujhe nahi pata kal kya hoga.
-
-                Na hi mujhe pata hai ki future humare liye kya lekar aayega.
-
-                Lekin ek baat main poore yakeen se keh sakta hoon...
-
-                Tumse milna meri life ki sabse achhi cheezon mein se ek hai.
-
-                Tumhari wajah se bahut si ordinary days bhi special lagne lagi.
-
-                Thank you har conversation ke liye.
-
-                Thank you har smile ke liye.
-
-                Thank you un sab yaadon ke liye
-                jo hamesha mere saath rahengi.
-
-                Aur sabse zyada...
-
-                Thank you sirf Jassi hone ke liye. 💜
-
-                Chahe zindagi humein kahin bhi le jaaye,
-
-                tum hamesha meri life ka ek bahut khoobsurat chapter rahogi.
-
+                Zindagi kaafi ajeeb si hoti hai... Hazaaro log milte hain. Kuch log bas raaste se guzar jaate hain. Kuch yaadon ka hissa ban jaate hain. Aur kuch bahut hi kam log aise hote hain, jo dil ke sabse kareeb aa jaate hain.<br><br>
+                Tum unhi sabse khaas logon mein se ek ho. Mujhe nahi pata kal kya hoga. Na hi mujhe pata hai ki future humare liye kya lekar aayega. Lekin ek baat main poore yakeen se keh sakta hoon...<br><br>
+                Tumse milna meri life ki sabse achhi cheezon mein se ek hai. Tumhari wajah se bahut si ordinary days bhi special lagne lagi. Thank you har conversation ke liye. Thank you har smile ke liye. Thank you un sab yaadon ke liye jo hamesha mere saath rahengi. Aur sabse zyada... Thank you sirf Jassi hone ke liye. 💜<br><br>
+                Chahe zindagi humein kahin bhi le jaaye, tum hamesha meri life ka ek bahut khoobsurat chapter rahogi.<br><br>
                 💜🌹✨
-
             </p>
-
         </div>
-
     </section>
 
+    <!-- Footer -->
     <footer>
-
-        Made With 💜 For Jassi urf dev sena❤️
-
+        Made With 💜 For Jassi urf Dev Sena ❤️
     </footer>
 
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
